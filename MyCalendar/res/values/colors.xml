@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+	<drawable name="gray_background">#EBEBEB</drawable>
+	
+    <drawable name="tab_normal">#1FBBA6</drawable>
+
+    <drawable name="back_pressed">#4ECDBC</drawable>
+    <drawable name="back_normal">#1FBBA6</drawable>
+    
+    <drawable name="text_white">#FFFFFF</drawable>
+
+</resources>

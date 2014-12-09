@@ -1,0 +1,25 @@
+<resources>
+
+    <string name="app_name">MyCalendar</string>
+
+    <string name="sun">일</string>
+    <string name="mon">월</string>
+    <string name="tue">화</string>
+    <string name="wed">수</string>
+    <string name="thu">목</string>
+    <string name="fri">금</string>
+    <string name="sat">토</string>
+
+    <string name="monthTitle">월별 일정</string>
+    <string name="monthText">%1$d년 %2$d월</string>
+    <string name="prevMonth">이전 달</string>
+    <string name="nextMonth">다음 달</string>
+
+    <string name="scheduleTitle">%1$d년 %2$d월  %3$d일</string>
+    <string name="scheduleAdd">추가</string>
+    <string name="scheduleEmpty">일정 목록이 없습니다</string>
+
+    <string name="ok">확인</string>
+    <string name="scheduleAddTitle">일정추가</string>
+
+</resources>
