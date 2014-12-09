@@ -43,6 +43,7 @@
         <LinearLayout
             android:layout_width="70dp"
             android:layout_height="match_parent"
+            android:background="@drawable/tab_button_selector"
             android:gravity="center" >
 
             <TextView
