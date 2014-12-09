@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import kr.ac.hyu.kangdaecheol.calendar.R;
-import kr.ac.hyu.kangdaecheol.calendar.activity.ScheduleActivity_;
+import kr.ac.hyu.kangdaecheol.calendar.activity.*;
 import kr.ac.hyu.kangdaecheol.calendar.database.DatabaseManager;
 import kr.ac.hyu.kangdaecheol.calendar.model.Day;
 import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
@@ -16,7 +16,6 @@ import org.androidannotations.annotations.ViewById;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 

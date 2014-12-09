@@ -20,7 +20,6 @@ public class MainActivity extends Activity {
 	
 	@ViewById
 	TextView monthText;
-	
 	@ViewById
 	GridView calendar;
 	

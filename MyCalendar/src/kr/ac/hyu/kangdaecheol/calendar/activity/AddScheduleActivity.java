@@ -42,24 +42,37 @@ public class AddScheduleActivity extends Activity {
 	
 	@Click(R.id.add)
 	protected void onAdd() {
-		if (editText.getText().length() > 0){
-			long startTimeMil = getStartDate().getTime() + getStartTime().getTime();
-			long endTimeMil = getEndDate().getTime() + getEndTime().getTime();
-			if(startTimeMil < endTimeMil) {
-				Schedule schedule = new Schedule();
-				schedule.setStartDate(getStartDate());
-				schedule.setStartTime(getStartTime());
-				schedule.setEndDate(getEndDate());
-				schedule.setEndTime(getEndTime());
-				schedule.setContents(editText.getText().toString());
-				databaseManager.addSchedule(schedule);
-				finish();
+		if (isTextLenNotZero()){
+			if(isValidStartEndDate()) {
+				addSchedule();
 			} else {
 				Toast.makeText(this, getString(R.string.scheduleStartOverEnd), Toast.LENGTH_SHORT).show();
 			}
 		} else {
-			Toast.makeText(this, getString(R.string.scheduleAdd), Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, getString(R.string.scheduleTextNull), Toast.LENGTH_SHORT).show();
 		}
+	}
+	
+	private boolean isTextLenNotZero() {
+		return editText.getText().length() > 0;
+	}
+	
+	private boolean isValidStartEndDate() {
+		long startTimeMil = getStartDate().getTime() + getStartTime().getTime();
+		long endTimeMil = getEndDate().getTime() + getEndTime().getTime();
+		return startTimeMil < endTimeMil;
+	}
+	
+	private void addSchedule() {
+		Schedule schedule = new Schedule();
+		schedule.setStartDate(getStartDate());
+		schedule.setStartTime(getStartTime());
+		schedule.setEndDate(getEndDate());
+		schedule.setEndTime(getEndTime());
+		schedule.setContents(editText.getText().toString());
+		databaseManager.addSchedule(schedule);
+		Toast.makeText(this, getString(R.string.addedMsg), Toast.LENGTH_SHORT).show();
+		finish();
 	}
 	
 	private Date getStartDate() {
