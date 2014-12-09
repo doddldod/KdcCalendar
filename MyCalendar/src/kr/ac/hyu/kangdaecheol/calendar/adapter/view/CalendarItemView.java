@@ -1,5 +1,7 @@
 package kr.ac.hyu.kangdaecheol.calendar.adapter.view;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import kr.ac.hyu.kangdaecheol.calendar.R;
@@ -14,6 +16,7 @@ import org.androidannotations.annotations.ViewById;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -50,14 +53,23 @@ public class CalendarItemView extends LinearLayout {
 				}
 			});
 			
-			List<Schedule> list = databaseManager.getScheduleListByDate(day);
+			List<Schedule> list = databaseManager.getScheduleListByDate(getDate(day));
 			if (list != null && list.size() > 0) {
-				status.setText(String.valueOf(list.size()));
+				status.setText("v");
+			} else {
+				status.setText("");
 			}
 		} else {
 			dayText.setText("");
 			setBackgroundResource(R.drawable.datebox_default_off);
 		}
+	}
+	
+	private Date getDate(Day day) {
+		Calendar cal = Calendar.getInstance();
+		cal.clear();
+		cal.set(day.getYear(), day.getMonth(), day.getDay(), 0, 0);
+		return cal.getTime();
 	}
 
 }

@@ -2,6 +2,7 @@
 <resources>
     
 	<drawable name="gray_background">#EBEBEB</drawable>
+	<drawable name="white_background">#FFFFFF</drawable>
 	
     <drawable name="tab_normal">#1FBBA6</drawable>
 
@@ -9,5 +10,10 @@
     <drawable name="back_normal">#1FBBA6</drawable>
     
     <drawable name="text_white">#FFFFFF</drawable>
+    
+    <drawable name="button_normal">#20CAB3</drawable>
+    <drawable name="button_pressed">#259D8D</drawable>
+
+    <drawable name="gray_divider">#CACACA</drawable>
 
 </resources>

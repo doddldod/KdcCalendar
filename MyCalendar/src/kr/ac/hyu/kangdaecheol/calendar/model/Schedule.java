@@ -1,5 +1,7 @@
 package kr.ac.hyu.kangdaecheol.calendar.model;
 
+import java.util.Date;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -12,19 +14,16 @@ public class Schedule {
 	private String contents;
 
 	@DatabaseField
-	private int year;
+	private Date startDate;
 
 	@DatabaseField
-	private int month;
+	private Date startTime;
 
 	@DatabaseField
-	private int day;
+	private Date endDate;
 
 	@DatabaseField
-	private int hour;
-
-	@DatabaseField
-	private int minute;
+	private Date endTime;
 
 	public int getId() {
 		return id;
@@ -42,44 +41,36 @@ public class Schedule {
 		this.contents = contents;
 	}
 
-	public int getYear() {
-		return year;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setYear(int year) {
-		this.year = year;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
-	public int getMonth() {
-		return month;
+	public Date getStartTime() {
+		return startTime;
 	}
 
-	public void setMonth(int month) {
-		this.month = month;
+	public void setStartTime(Date startTime) {
+		this.startTime = startTime;
 	}
 
-	public int getDay() {
-		return day;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setDay(int day) {
-		this.day = day;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 
-	public int getHour() {
-		return hour;
+	public Date getEndTime() {
+		return endTime;
 	}
 
-	public void setHour(int hour) {
-		this.hour = hour;
+	public void setEndTime(Date endTime) {
+		this.endTime = endTime;
 	}
 
-	public int getMinute() {
-		return minute;
-	}
-
-	public void setMinute(int minute) {
-		this.minute = minute;
-	}
-	
 }

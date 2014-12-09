@@ -1,9 +1,9 @@
 package kr.ac.hyu.kangdaecheol.calendar.database;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
-import kr.ac.hyu.kangdaecheol.calendar.model.Day;
 import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
 
 import org.androidannotations.annotations.AfterInject;
@@ -30,12 +30,11 @@ public class DatabaseManager {
 		return helper;
 	}
 
-	public List<Schedule> getScheduleListByDate(Day day) {
+	public List<Schedule> getScheduleListByDate(Date date) {
 		try {
 			return getHelper().getScheduleDao().queryBuilder().where()
-					.eq("year", day.getYear()).and()
-					.eq("month", day.getMonth()).and()
-					.eq("day", day.getDay())
+					.le("startDate", date).and()
+					.ge("endDate", date)
 					.query();
 		} catch (SQLException e) {
 			return null;

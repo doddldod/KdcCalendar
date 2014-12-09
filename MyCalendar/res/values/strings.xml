@@ -17,10 +17,18 @@
 
     <string name="scheduleTitle">%1$d년 %2$d월  %3$d일</string>
     <string name="scheduleAdd">추가</string>
-    <string name="scheduleEmpty">일정 목록이 없습니다</string>
+    <string name="scheduleStartOverEnd">시작일이 종료일보다 클 수 없습니다.\n 다시 입력해주세요.</string>
+    
+    <string name="scheduleEmpty">일정 목록이 없습니다.</string>
+    <string name="scheduleAddTitle">일정추가</string>
+    
+    <string name="scheduleContents">내용</string>
+    <string name="scheduleStart">시작일</string>
+    <string name="scheduleEnd">종료일</string>
 
     <string name="ok">확인</string>
-    <string name="scheduleAddTitle">일정추가</string>
-    <string name="scheduleDate">%1$d. %2$d.  %3$d %4$d:%5$d</string>
+    <string name="modify">수정</string>
+    <string name="delete">삭제</string>
+    <string name="to">~</string>
 
 </resources>

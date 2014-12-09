@@ -50,5 +50,5 @@ public class Day implements Comparable<Day> {
 			return -1;
 		}
 	}
-
+	
 }

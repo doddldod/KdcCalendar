@@ -1,11 +1,12 @@
 package kr.ac.hyu.kangdaecheol.calendar.activity;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import kr.ac.hyu.kangdaecheol.calendar.R;
 import kr.ac.hyu.kangdaecheol.calendar.adapter.ScheduleAdapter;
 import kr.ac.hyu.kangdaecheol.calendar.database.DatabaseManager;
-import kr.ac.hyu.kangdaecheol.calendar.model.Day;
 import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
 
 import org.androidannotations.annotations.AfterViews;
@@ -47,7 +48,7 @@ public class ScheduleActivity extends Activity {
 	protected void init() {
 		title.setText(String.format(getString(R.string.scheduleTitle), year, month+1, day));
 		
-		List<Schedule> list = databaseManager.getScheduleListByDate(new Day(year, month, day));
+		List<Schedule> list = databaseManager.getScheduleListByDate(getDate());
 		if (list != null && list.size() > 0) {
 			empty.setVisibility(View.GONE);
 			listView.setVisibility(View.VISIBLE);
@@ -58,6 +59,13 @@ public class ScheduleActivity extends Activity {
 			empty.setVisibility(View.VISIBLE);
 			listView.setVisibility(View.GONE);
 		}
+	}
+	
+	private Date getDate() {
+		Calendar cal = Calendar.getInstance();
+		cal.clear();
+		cal.set(year, month, day, 0, 0);
+		return cal.getTime();
 	}
 	
 	@Click(R.id.back)

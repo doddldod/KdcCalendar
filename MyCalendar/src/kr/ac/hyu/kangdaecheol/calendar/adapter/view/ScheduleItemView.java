@@ -1,5 +1,7 @@
 package kr.ac.hyu.kangdaecheol.calendar.adapter.view;
 
+import java.util.Date;
+
 import kr.ac.hyu.kangdaecheol.calendar.R;
 import kr.ac.hyu.kangdaecheol.calendar.database.DatabaseManager;
 import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
@@ -9,6 +11,7 @@ import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
 import android.content.Context;
+import android.text.format.DateFormat;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +19,9 @@ import android.widget.TextView;
 public class ScheduleItemView extends LinearLayout {
 
 	@ViewById
-	TextView date;
+	TextView startDate;
+	@ViewById
+	TextView endDate;
 	@ViewById
 	TextView contents;
 	
@@ -31,13 +36,13 @@ public class ScheduleItemView extends LinearLayout {
 	}
 
 	public void bind(Schedule schedule) {
-		date.setText(context.getString(R.string.scheduleDate, 
-				schedule.getYear(), 
-				schedule.getMonth(), 
-				schedule.getDay(),
-				schedule.getHour(),
-				schedule.getMinute()));
+		startDate.setText(getStringFormatedDate(schedule.getStartDate()));
+		endDate.setText(getStringFormatedDate(schedule.getEndDate()));
 		contents.setText(schedule.getContents());
+	}
+	
+	private CharSequence getStringFormatedDate(Date date) {
+		return DateFormat.format("yyyy. MM. dd hh:mm", date);
 	}
 
 }
