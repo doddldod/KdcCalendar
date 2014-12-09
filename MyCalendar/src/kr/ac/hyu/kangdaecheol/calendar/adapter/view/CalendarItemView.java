@@ -22,7 +22,6 @@ public class CalendarItemView extends LinearLayout {
 
 	@ViewById
 	TextView dayText;
-
 	@ViewById
 	TextView status;
 	
