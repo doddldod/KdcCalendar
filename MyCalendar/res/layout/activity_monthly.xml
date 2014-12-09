@@ -41,13 +41,13 @@
             android:layout_weight="1" />
 
         <LinearLayout
+            android:id="@+id/add"
             android:layout_width="70dp"
             android:layout_height="match_parent"
             android:background="@drawable/tab_button_selector"
             android:gravity="center" >
 
             <TextView
-                android:id="@+id/add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/scheduleAdd"

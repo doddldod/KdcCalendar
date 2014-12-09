@@ -3,7 +3,7 @@ package kr.ac.hyu.kangdaecheol.calendar.adapter.view;
 import java.util.Date;
 
 import kr.ac.hyu.kangdaecheol.calendar.R;
-import kr.ac.hyu.kangdaecheol.calendar.activity.ModifyScheduleActivity_;
+import kr.ac.hyu.kangdaecheol.calendar.activity.*;
 import kr.ac.hyu.kangdaecheol.calendar.database.DatabaseManager;
 import kr.ac.hyu.kangdaecheol.calendar.eventbus.MyBus;
 import kr.ac.hyu.kangdaecheol.calendar.eventbus.UpdateScheduleEvent;
