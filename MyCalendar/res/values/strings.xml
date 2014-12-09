@@ -10,10 +10,19 @@
     <string name="fri">금</string>
     <string name="sat">토</string>
 
+    <string name="mainTitle">일정보기</string>
+    <string name="monthly">월별</string>
+    <string name="weekly">주별</string>
+
     <string name="monthTitle">월별 일정</string>
     <string name="monthText">%1$d년 %2$d월</string>
     <string name="prevMonth">이전 달</string>
     <string name="nextMonth">다음 달</string>
+
+    <string name="weeklyTitle">주별 일정</string>
+    <string name="weekText">%1$d년 %2$d월 %3$d주차</string>
+    <string name="prevWeek">이전 주</string>
+    <string name="nextWeek">다음 주</string>
 
     <string name="scheduleTitle">%1$d년 %2$d월  %3$d일</string>
     <string name="scheduleAdd">추가</string>
@@ -26,7 +35,11 @@
     
     <string name="scheduleContents">내용</string>
     <string name="scheduleStart">시작일</string>
+    <string name="scheduleStartHint1">시작 일자를 입력</string>
+    <string name="scheduleStartHint2">시작 시간을 입력</string>
     <string name="scheduleEnd">종료일</string>
+    <string name="scheduleEndHint1">종료 일자를 입력</string>
+    <string name="scheduleEndHint2">종료 시간을 입력</string>
 
     <string name="ok">확인</string>
     <string name="modify">수정</string>

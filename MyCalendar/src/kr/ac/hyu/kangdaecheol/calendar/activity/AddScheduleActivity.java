@@ -46,6 +46,10 @@ public class AddScheduleActivity extends Activity {
 	@AfterViews
 	protected void init() {
 		schedule = new Schedule();
+		schedule.setStartDate(getInitDate());
+		schedule.setEndDate(getInitDate());
+		schedule.setStartTime(getInitTime());
+		schedule.setEndTime(getInitTime());
 	}
 	
 	@Click(R.id.back)
@@ -90,6 +94,24 @@ public class AddScheduleActivity extends Activity {
 		showTimeDialog(schedule.getStartTime(), myEndTimeSetListener);
 	}
 	
+	private Date getInitDate() {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		cal.set(cal.get(Calendar.YEAR), 
+				cal.get(Calendar.MONTH), 
+				cal.get(Calendar.DAY_OF_MONTH), 0, 0);
+		return cal.getTime();
+	}
+
+	private Date getInitTime() {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(new Date());
+		cal.set(0, 0, 0,
+				cal.get(Calendar.HOUR),
+				cal.get(Calendar.MINUTE));
+		return cal.getTime();
+	}
+	
 	private boolean isTextLenNotZero() {
 		return editText.getText().length() > 0;
 	}
@@ -110,7 +132,6 @@ public class AddScheduleActivity extends Activity {
 	}
 	
 	private void addSchedule() {
-		Schedule schedule = new Schedule();
 		schedule.setContents(editText.getText().toString());
 		databaseManager.addSchedule(schedule);
 		Toast.makeText(this, getString(R.string.addedMsg), Toast.LENGTH_SHORT).show();

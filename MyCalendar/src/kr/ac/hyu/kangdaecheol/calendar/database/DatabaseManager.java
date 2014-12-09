@@ -49,6 +49,17 @@ public class DatabaseManager {
 		}
 	}
 	
+	public List<Schedule> getWeeklyScheduleList(Date startDate, Date endDate) {
+		try {
+			return getHelper().getScheduleDao().queryBuilder().where()
+					.between("startDate", startDate, endDate).or()
+					.between("endDate", startDate, endDate)
+					.query();
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
 	public void addSchedule(Schedule schedule) {
 		try {
 			getHelper().getScheduleDao().create(schedule);

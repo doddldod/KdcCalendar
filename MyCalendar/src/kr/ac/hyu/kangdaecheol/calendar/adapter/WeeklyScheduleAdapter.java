@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 @EBean
-public class ScheduleAdapter extends BaseAdapter {
+public class WeeklyScheduleAdapter extends BaseAdapter {
 
 	@RootContext
 	protected Activity activity;

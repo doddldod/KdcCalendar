@@ -22,6 +22,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.MonthlyActivity_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.WeeklyActivity_"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.ScheduleActivity_"
             android:screenOrientation="portrait" />
         <activity
