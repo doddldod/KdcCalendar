@@ -29,6 +29,14 @@ public class DatabaseManager {
 	private DatabaseHelper getHelper() {
 		return helper;
 	}
+	
+	public Schedule getScheduleByid(int id) {
+		try {
+			return getHelper().getScheduleDao().queryForId(id);
+		} catch (SQLException e) {
+			return null;
+		}
+	}
 
 	public List<Schedule> getScheduleListByDate(Date date) {
 		try {

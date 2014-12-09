@@ -3,6 +3,8 @@ package kr.ac.hyu.kangdaecheol.calendar.adapter.view;
 import java.util.Date;
 
 import kr.ac.hyu.kangdaecheol.calendar.R;
+import kr.ac.hyu.kangdaecheol.calendar.activity.ModifyScheduleActivity_;
+import kr.ac.hyu.kangdaecheol.calendar.activity.ScheduleActivity;
 import kr.ac.hyu.kangdaecheol.calendar.database.DatabaseManager;
 import kr.ac.hyu.kangdaecheol.calendar.eventbus.MyBus;
 import kr.ac.hyu.kangdaecheol.calendar.eventbus.UpdateScheduleEvent;
@@ -13,7 +15,6 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
-import android.content.Context;
 import android.text.format.DateFormat;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,12 +35,12 @@ public class ScheduleItemView extends LinearLayout {
 	@Bean
 	MyBus bus;
 	
-	private Context context;
+	private ScheduleActivity scheduleActivity;
 	private Schedule schedule;
 
-	public ScheduleItemView(Context context) {
-		super(context);
-		this.context = context;
+	public ScheduleItemView(ScheduleActivity scheduleActivity) {
+		super(scheduleActivity);
+		this.scheduleActivity = scheduleActivity;
 	}
 
 	public void bind(Schedule schedule) {
@@ -53,11 +54,16 @@ public class ScheduleItemView extends LinearLayout {
 		return DateFormat.format("yyyy. MM. dd hh:mm", date);
 	}
 	
+	@Click(R.id.modify)
+	protected void modify() {
+		ModifyScheduleActivity_.intent(scheduleActivity).id(schedule.getId()).start();
+	}
+	
 	@Click(R.id.delete)
 	protected void delete() {
 		databaseManager.deleteSchedule(schedule);
 		bus.post(new UpdateScheduleEvent());
-		Toast.makeText(context, context.getString(R.string.deletedMsg), Toast.LENGTH_SHORT).show();
+		Toast.makeText(scheduleActivity, scheduleActivity.getString(R.string.deletedMsg), Toast.LENGTH_SHORT).show();
 	}
 
 }

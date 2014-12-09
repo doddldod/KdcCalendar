@@ -27,6 +27,9 @@
         <activity
             android:name=".activity.AddScheduleActivity_"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ModifyScheduleActivity_"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

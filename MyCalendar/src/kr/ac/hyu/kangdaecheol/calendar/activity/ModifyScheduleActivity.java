@@ -11,6 +11,7 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
 
 import android.app.Activity;
@@ -24,9 +25,12 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-@EActivity(R.layout.activity_add_schedule)
-public class AddScheduleActivity extends Activity {
-	
+@EActivity(R.layout.activity_modify_schedule)
+public class ModifyScheduleActivity extends Activity {
+
+	@Extra
+	int id;
+
 	@ViewById
 	EditText editText;
 	@ViewById
@@ -37,39 +41,48 @@ public class AddScheduleActivity extends Activity {
 	TextView endDate;
 	@ViewById
 	TextView endTime;
-	
+
 	@Bean
 	DatabaseManager databaseManager;
 	
 	private Schedule schedule;
-	
+
 	@AfterViews
 	protected void init() {
-		schedule = new Schedule();
+		schedule = databaseManager.getScheduleByid(id);
+		editText.setText(schedule.getContents());
+		startDate.setText(getStringFormatedDate(schedule.getStartDate()));
+		startTime.setText(getStringFormatedTime(schedule.getStartTime()));
+		endDate.setText(getStringFormatedDate(schedule.getEndDate()));
+		endTime.setText(getStringFormatedTime(schedule.getEndTime()));
 	}
-	
+
+	private CharSequence getStringFormatedDate(Date date) {
+		return DateFormat.format("yyyy. MM. dd", date);
+	}
+
+	private CharSequence getStringFormatedTime(Date date) {
+		return DateFormat.format("hh:mm", date);
+	}
+
 	@Click(R.id.back)
 	protected void onClickBack() {
 		finish();
 	}
-	
-	@Click(R.id.add)
-	protected void onAdd() {
-		if (isTextLenNotZero()){
-			if(isAllDateNotNull()){
-				if(isValidStartEndDate()) {
-					addSchedule();
-				} else {
-					Toast.makeText(this, getString(R.string.scheduleStartOverEnd), Toast.LENGTH_SHORT).show();
-				}
+
+	@Click(R.id.modify)
+	protected void onㅡodify() {
+		if (isTextLenNotZero()) {
+			if (isValidStartEndDate()) {
+				mpdifySchedule();
 			} else {
-				Toast.makeText(this, getString(R.string.scheduleDateNull), Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, getString(R.string.scheduleStartOverEnd), Toast.LENGTH_SHORT).show();
 			}
 		} else {
 			Toast.makeText(this, getString(R.string.scheduleTextNull), Toast.LENGTH_SHORT).show();
 		}
 	}
-	
+
 	@Click(R.id.startDate)
 	protected void onStartDate() {
 		showDateDialog(schedule.getStartDate(), myStartDateListener);
@@ -93,27 +106,17 @@ public class AddScheduleActivity extends Activity {
 	private boolean isTextLenNotZero() {
 		return editText.getText().length() > 0;
 	}
-	
-	private boolean isAllDateNotNull() {
-		if(schedule.getStartDate() == null || schedule.getStartTime() == null
-				|| schedule.getEndDate() == null || schedule.getEndTime() == null) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-	
+
 	private boolean isValidStartEndDate() {
 		long startTimeMil = schedule.getStartDate().getTime() + schedule.getStartTime().getTime();
 		long endTimeMil = schedule.getEndDate().getTime() + schedule.getEndTime().getTime();
 		return startTimeMil < endTimeMil;
 	}
-	
-	private void addSchedule() {
-		Schedule schedule = new Schedule();
+
+	private void mpdifySchedule() {
 		schedule.setContents(editText.getText().toString());
-		databaseManager.addSchedule(schedule);
-		Toast.makeText(this, getString(R.string.addedMsg), Toast.LENGTH_SHORT).show();
+		databaseManager.updateSchedule(schedule);
+		Toast.makeText(this, getString(R.string.modifyMsg), Toast.LENGTH_SHORT).show();
 		finish();
 	}
 	
@@ -140,15 +143,7 @@ public class AddScheduleActivity extends Activity {
                 false);
         dlgTime.show();
 	}
-	
-	private CharSequence getStringFormatedDate(Date date) {
-		return DateFormat.format("yyyy. MM. dd", date);
-	}
 
-	private CharSequence getStringFormatedTime(Date date) {
-		return DateFormat.format("hh:mm", date);
-	}
-	
 	private Date getDate(int year, int monthOfYear, int dayOfMont) {
 		Calendar cal = Calendar.getInstance();
 		cal.clear();
@@ -162,7 +157,7 @@ public class AddScheduleActivity extends Activity {
 		cal.set(0, 0, 0, hourOfDay, minute);
 		return cal.getTime();
 	}
-	
+
 	private DatePickerDialog.OnDateSetListener myStartDateListener = new DatePickerDialog.OnDateSetListener() {
 
 		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -194,5 +189,5 @@ public class AddScheduleActivity extends Activity {
 			endTime.setText(getStringFormatedTime(schedule.getEndTime()));
 		}
 	};
-	
+
 }

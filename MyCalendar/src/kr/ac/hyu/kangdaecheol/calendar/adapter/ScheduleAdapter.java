@@ -2,6 +2,7 @@ package kr.ac.hyu.kangdaecheol.calendar.adapter;
 
 import java.util.List;
 
+import kr.ac.hyu.kangdaecheol.calendar.activity.ScheduleActivity;
 import kr.ac.hyu.kangdaecheol.calendar.adapter.view.ScheduleItemView;
 import kr.ac.hyu.kangdaecheol.calendar.adapter.view.ScheduleItemView_;
 import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
@@ -9,7 +10,6 @@ import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
 
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -18,7 +18,7 @@ import android.widget.BaseAdapter;
 public class ScheduleAdapter extends BaseAdapter {
 
 	@RootContext
-	protected Context context;
+	protected ScheduleActivity scheduleActivity;
 
 	List<Schedule> scheduleList;
 	
@@ -45,7 +45,7 @@ public class ScheduleAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ScheduleItemView scheduleItemView;
 		if (convertView == null) {
-			scheduleItemView = ScheduleItemView_.build(context);
+			scheduleItemView = ScheduleItemView_.build(scheduleActivity);
 		} else {
 			scheduleItemView = (ScheduleItemView) convertView;
 		}
