@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-@EViewGroup(R.layout.schedule_item)
+@EViewGroup(resName="schedule_item")
 public class ScheduleItemView extends LinearLayout {
 
 	@ViewById
@@ -54,12 +54,12 @@ public class ScheduleItemView extends LinearLayout {
 		return DateFormat.format("yyyy. MM. dd hh:mm", date);
 	}
 	
-	@Click(R.id.modify)
+	@Click(resName="modify")
 	protected void modify() {
 		ModifyScheduleActivity_.intent(activity).id(schedule.getId()).start();
 	}
 	
-	@Click(R.id.delete)
+	@Click(resName="delete")
 	protected void delete() {
 		databaseManager.deleteSchedule(schedule);
 		bus.post(new UpdateScheduleEvent());

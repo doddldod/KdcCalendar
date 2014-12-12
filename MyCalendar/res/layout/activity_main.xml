@@ -1,52 +1,168 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gray_background"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    tools:context="kdc.hanyang.activity.Activity_Intro" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@drawable/tab_normal"
-        android:gravity="left" >
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
 
-        <TextView
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:gravity="center_vertical"
-            android:text="@string/mainTitle"
-            android:textColor="@drawable/text_white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_margin="50dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/main_img" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="horizontal" >
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
 
-        <TextView
-            android:id="@+id/monthly"
-            android:layout_width="100dp"
-            android:layout_height="45dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button_selector"
-            android:gravity="center"
-            android:text="@string/monthly"
-            android:textColor="@drawable/text_white" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/weekly"
-            android:layout_width="100dp"
-            android:layout_height="45dp"
-            android:background="@drawable/button_selector"
-            android:gravity="center"
-            android:text="@string/weekly"
-            android:textColor="@drawable/text_white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:padding="2dp" >
+
+                <Button
+                    android:id="@+id/BT_ViewEvents"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/main_bt"
+                    android:text="@string/str_view"
+                    android:textColor="#454545"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:typeface="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:padding="2dp" >
+
+                <Button
+                    android:id="@+id/BT_AddEvents"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/main_bt"
+                    android:text="@string/str_add"
+                    android:textColor="#454545"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:typeface="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:padding="2dp" >
+
+                <Button
+                    android:id="@+id/BT_UpComing"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/main_bt"
+                    android:text="@string/str_upcoming"
+                    android:textColor="#454545"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:typeface="normal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:padding="2dp" >
+
+                <Button
+                    android:id="@+id/BT_Board"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/main_bt"
+                    android:text="@string/str_board"
+                    android:textColor="#454545"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:typeface="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:padding="2dp" >
+
+                <Button
+                    android:id="@+id/BT_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/main_bt"
+                    android:text="@string/str_email"
+                    android:textColor="#454545"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:typeface="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="horizontal"
+                android:padding="2dp" >
+
+                <Button
+                    android:id="@+id/BT_About"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/main_bt"
+                    android:text="@string/str_about"
+                    android:textColor="#454545"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:typeface="normal" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

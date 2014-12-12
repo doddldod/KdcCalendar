@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-@EActivity(R.layout.activity_add_schedule)
+@EActivity(resName="activity_add_schedule")
 public class AddScheduleActivity extends Activity {
 	
 	@ViewById
@@ -52,12 +52,12 @@ public class AddScheduleActivity extends Activity {
 		schedule.setEndTime(getInitTime());
 	}
 	
-	@Click(R.id.back)
+	@Click(resName="back")
 	protected void onClickBack() {
 		finish();
 	}
 	
-	@Click(R.id.add)
+	@Click(resName="add")
 	protected void onAdd() {
 		if (isTextLenNotZero()){
 			if(isAllDateNotNull()){
@@ -74,22 +74,22 @@ public class AddScheduleActivity extends Activity {
 		}
 	}
 	
-	@Click(R.id.startDate)
+	@Click(resName="startDate")
 	protected void onStartDate() {
 		showDateDialog(schedule.getStartDate(), myStartDateListener);
 	}
 	
-	@Click(R.id.endDate)
+	@Click(resName="endDate")
 	protected void onEndDate() {
 		showDateDialog(schedule.getEndDate(), myEndDateListener);
 	}
 	
-	@Click(R.id.startTime)
+	@Click(resName="startTime")
 	protected void onStartTime() {
 		showTimeDialog(schedule.getStartTime(), myStartTimeSetListener);
 	}
 
-	@Click(R.id.endTime)
+	@Click(resName="endTime")
 	protected void onEndTime() {
 		showTimeDialog(schedule.getStartTime(), myEndTimeSetListener);
 	}

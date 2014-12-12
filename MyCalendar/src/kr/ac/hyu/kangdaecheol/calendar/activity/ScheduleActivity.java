@@ -25,7 +25,7 @@ import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
-@EActivity(R.layout.activity_schedule)
+@EActivity(resName="activity_schedule")
 public class ScheduleActivity extends Activity {
 	
 	@Extra
@@ -87,7 +87,7 @@ public class ScheduleActivity extends Activity {
 		return cal.getTime();
 	}
 	
-	@Click(R.id.back)
+	@Click(resName="back")
 	protected void onClickBack() {
 		finish();
 	}

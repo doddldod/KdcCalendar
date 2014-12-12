@@ -25,7 +25,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-@EActivity(R.layout.activity_modify_schedule)
+@EActivity(resName="activity_modify_schedule")
 public class ModifyScheduleActivity extends Activity {
 
 	@Extra
@@ -65,13 +65,13 @@ public class ModifyScheduleActivity extends Activity {
 		return DateFormat.format("hh:mm", date);
 	}
 
-	@Click(R.id.back)
+	@Click(resName="back")
 	protected void onClickBack() {
 		finish();
 	}
 
-	@Click(R.id.modify)
-	protected void onㅡodify() {
+	@Click(resName="modify")
+	protected void onModify() {
 		if (isTextLenNotZero()) {
 			if (isValidStartEndDate()) {
 				mpdifySchedule();
@@ -83,22 +83,22 @@ public class ModifyScheduleActivity extends Activity {
 		}
 	}
 
-	@Click(R.id.startDate)
+	@Click(resName="startDate")
 	protected void onStartDate() {
 		showDateDialog(schedule.getStartDate(), myStartDateListener);
 	}
 	
-	@Click(R.id.endDate)
+	@Click(resName="endDate")
 	protected void onEndDate() {
 		showDateDialog(schedule.getEndDate(), myEndDateListener);
 	}
 	
-	@Click(R.id.startTime)
+	@Click(resName="startTime")
 	protected void onStartTime() {
 		showTimeDialog(schedule.getStartTime(), myStartTimeSetListener);
 	}
 
-	@Click(R.id.endTime)
+	@Click(resName="endTime")
 	protected void onEndTime() {
 		showTimeDialog(schedule.getStartTime(), myEndTimeSetListener);
 	}

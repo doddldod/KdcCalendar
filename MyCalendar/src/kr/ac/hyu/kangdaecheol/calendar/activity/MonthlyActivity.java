@@ -15,7 +15,7 @@ import android.app.Activity;
 import android.widget.GridView;
 import android.widget.TextView;
 
-@EActivity(R.layout.activity_monthly)
+@EActivity(resName="activity_monthly")
 public class MonthlyActivity extends Activity {
 	
 	@ViewById
@@ -50,7 +50,7 @@ public class MonthlyActivity extends Activity {
 		monthText.setText(String.format(getString(R.string.monthText), year, month+1));
 	}
 	
-	@Click(R.id.prevMonth)
+	@Click(resName="prevMonth")
 	void onPrev() {
 		if(month == 0){
 			year--;
@@ -63,7 +63,7 @@ public class MonthlyActivity extends Activity {
 		setMonthText();
 	}
 
-	@Click(R.id.nextMonth)
+	@Click(resName="nextMonth")
 	void onNext() {
 		if(month == 11){
 			year++;
@@ -76,12 +76,12 @@ public class MonthlyActivity extends Activity {
 		setMonthText();
 	}
 	
-	@Click(R.id.add)
+	@Click(resName="add")
 	void onAdd() {
 		AddScheduleActivity_.intent(this).start();
 	}
 	
-	@Click(R.id.back)
+	@Click(resName="back")
 	protected void onClickBack() {
 		finish();
 	}

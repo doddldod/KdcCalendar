@@ -19,7 +19,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-@EViewGroup(R.layout.calendar_item)
+@EViewGroup(resName="calendar_item")
 public class CalendarItemView extends LinearLayout {
 
 	@ViewById

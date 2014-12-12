@@ -26,7 +26,7 @@ import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 
-@EActivity(R.layout.activity_weekly)
+@EActivity(resName="activity_weekly")
 public class WeeklyActivity extends Activity {
 	
 	@ViewById
@@ -179,7 +179,7 @@ public class WeeklyActivity extends Activity {
 		return cal.getTime();
 	}
 	
-	@Click(R.id.prevWeek)
+	@Click(resName="prevWeek")
 	void onPrev() {
 		if(nowWeekNum == 1) {
 			if(nowMonth == 0){
@@ -201,7 +201,7 @@ public class WeeklyActivity extends Activity {
 		setMonthText();
 	}
 
-	@Click(R.id.nextWeek)
+	@Click(resName="nextWeek")
 	void onNext() {
 		if(nowWeekNum == lastWeekNum) {
 			if(nowMonth == 11){
@@ -223,12 +223,12 @@ public class WeeklyActivity extends Activity {
 		setMonthText();
 	}
 	
-	@Click(R.id.add)
+	@Click(resName="add")
 	void onAdd() {
 		AddScheduleActivity_.intent(this).start();
 	}
 	
-	@Click(R.id.back)
+	@Click(resName="back")
 	protected void onClickBack() {
 		finish();
 	}
