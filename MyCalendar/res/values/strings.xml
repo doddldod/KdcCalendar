@@ -50,7 +50,9 @@
     <string name="addedMsg">추가 되었습니다.</string>
     <string name="modifyMsg">수정 되었습니다.</string>
     
-        <string name="str_view">View</string>
+    <string name="upcomingTitle">Upcoming Events</string>
+
+    <string name="str_view">View</string>
     <string name="str_add">Add</string>
     <string name="str_upcoming">Upcoming</string>
     <string name="str_board">Board</string>
@@ -79,5 +81,4 @@
     <string name="BT_Delete">The msg has been deleted</string>
     <string name="BT_CantDelete">You don\'t have permission to delete it</string>
     
-
 </resources>

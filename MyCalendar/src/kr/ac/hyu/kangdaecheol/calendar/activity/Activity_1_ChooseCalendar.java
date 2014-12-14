@@ -21,6 +21,12 @@ public class Activity_1_ChooseCalendar extends Activity {
 	void onWeekly() {
 		Activity_1_Weekly_.intent(this).start();
 	}
+	
+	@Click(resName="back")
+	protected void onClickBack() {
+		finish();
+	}
+	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {

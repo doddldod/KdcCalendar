@@ -63,6 +63,11 @@
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
+            android:name=".activity.Activity_3_Upcoming_"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
             android:name=".activity.Activity_4_Board_"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"

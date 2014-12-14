@@ -75,6 +75,7 @@ public class Activity_Main extends Activity {
 	
 	@Click(resName="upComing")
 	void onClickUpComing() {
+		Activity_3_Upcoming_.intent(this).start();
 	}
 	
 	public void showToast(String mText) {

@@ -37,6 +37,18 @@ public class DatabaseManager {
 			return null;
 		}
 	}
+	
+	public List<Schedule> getAllScheduleList(Date date) {
+		try {
+			return getHelper().getScheduleDao().queryBuilder()
+					.orderBy("endDate", false)
+					.where()
+					.le("startDate", date)
+					.query();
+		} catch (SQLException e) {
+			return null;
+		}
+	}
 
 	public List<Schedule> getScheduleListByDate(Date date) {
 		try {
