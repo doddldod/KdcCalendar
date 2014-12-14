@@ -52,7 +52,8 @@ public class Activity_4_Board extends Activity implements OnScrollListener {
 	BoardAdapter mAdapter;
 
 	private View footer;
-	private ArrayList<BoardInfo> boardList = new ArrayList<BoardInfo>();
+	private ArrayList<BoardInfo> entireBoardList = new ArrayList<BoardInfo>();
+	private ArrayList<BoardInfo> boardList;
 
 	private boolean isListViewLocked;
 
@@ -71,9 +72,8 @@ public class Activity_4_Board extends Activity implements OnScrollListener {
 
 		getAccount();
 		initBoard();
-		getBoard();
 	}
-	
+
 	private void getAccount() {
 		AccountManager manager = AccountManager.get(this);
 		Account[] accounts = manager.getAccounts();
@@ -106,13 +106,15 @@ public class Activity_4_Board extends Activity implements OnScrollListener {
 			boardListView.removeFooterView(footer);
 			footer = null;
 		}
-		boardList.clear();
+		entireBoardList.clear();
+		getBoard();
 	}
 
 	@SuppressLint("InflateParams")
 	@UiThread
 	public void setBoard() {
 		isListViewLocked = true;
+		boardList = new ArrayList<BoardInfo>();
 		mAdapter.setList(boardList);
 
 		if (footer == null) {
@@ -150,12 +152,14 @@ public class Activity_4_Board extends Activity implements OnScrollListener {
 			public void run() {
 				for (int i = listCount; i < listMax; i++) {
 
-					if (i < boardList.size()) {
+					if (i < entireBoardList.size()) {
+						boardList.add(entireBoardList.get(i));
 						listCount++;
 					} else {
 						boardListView.removeFooterView(footer);
 						footer = null;
-						boardList.clear();
+						boardList = null;
+						entireBoardList.clear();
 					}
 				}
 				mAdapter.notifyDataSetChanged();
@@ -175,7 +179,7 @@ public class Activity_4_Board extends Activity implements OnScrollListener {
 	protected void boardListViewItemLongClicked(BoardInfo clickedItem) {
 		DialogSelectOption(clickedItem);
 	}
-	
+
 	@Click(resName = "submit")
 	protected void onClickSubmit() {
 		if (Setting_Variables.User_Email.equals("") == true) {
@@ -252,7 +256,7 @@ public class Activity_4_Board extends Activity implements OnScrollListener {
 						break;
 					}
 					if (tag.compareTo("onelineboarditem") == 0) {
-						boardList.add(ei);
+						entireBoardList.add(ei);
 					}
 					break;
 				case XmlPullParser.TEXT:
@@ -299,7 +303,6 @@ public class Activity_4_Board extends Activity implements OnScrollListener {
 			e.printStackTrace();
 		}
 		initBoard();
-		getBoard();
 	}
 
 	@Background
@@ -310,14 +313,14 @@ public class Activity_4_Board extends Activity implements OnScrollListener {
 		ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
 		postParameters
 				.add(new BasicNameValuePair("type", "deleteOneLineBoard"));
-		postParameters.add(new BasicNameValuePair("id", String.valueOf(boardInfo.getId())));
+		postParameters.add(new BasicNameValuePair("id", String
+				.valueOf(boardInfo.getId())));
 		try {
 			HttpCon.executeHttpPost(url, postParameters);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		initBoard();
-		getBoard();
 	}
 
 	@Override
