@@ -25,7 +25,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 @EActivity(resName="activity_add_schedule")
-public class AddScheduleActivity extends Activity {
+public class Activity_1_AddSchedule extends Activity {
 	
 	@ViewById
 	EditText editText;

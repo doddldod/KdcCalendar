@@ -6,7 +6,7 @@ import java.util.List;
 
 import kr.ac.hyu.kangdaecheol.calendar.adapter.view.CalendarItemView;
 import kr.ac.hyu.kangdaecheol.calendar.adapter.view.CalendarItemView_;
-import kr.ac.hyu.kangdaecheol.calendar.model.Day;
+import kr.ac.hyu.kangdaecheol.calendar.model.MyDate;
 
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
@@ -22,7 +22,7 @@ public class CalendarAdapter extends BaseAdapter {
 	@RootContext
 	protected Context context;
 
-	List<Day> dayList;
+	List<MyDate> dayList;
 
 	private Calendar cal;
 
@@ -56,13 +56,13 @@ public class CalendarAdapter extends BaseAdapter {
 	
 	private void addCalendarDay() {
 		for (int i = 1; i <= getLastDay(); i++) {
-			dayList.add(new Day(year, month, i));
+			dayList.add(new MyDate(year, month, i));
 		}
 	}
 
 	private void addFrontEmptyDay() {
 		for (int i = 0; i < getDayofWeek(); i++) {
-			dayList.add(new Day());
+			dayList.add(new MyDate());
 		}
 	}
 	
@@ -70,7 +70,7 @@ public class CalendarAdapter extends BaseAdapter {
 		int remainCardsetCount = dayList.size() % 7;
 		if (remainCardsetCount != 0) {
 			for (int i = 0; i < 7 - remainCardsetCount; i++) {
-				dayList.add(new Day());
+				dayList.add(new MyDate());
 			}
 		}
 	}
@@ -81,7 +81,7 @@ public class CalendarAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public Day getItem(int position) {
+	public MyDate getItem(int position) {
 		return dayList.get(position);
 	}
 

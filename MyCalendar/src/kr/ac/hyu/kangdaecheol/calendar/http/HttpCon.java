@@ -1,4 +1,4 @@
-package kdc.hanyang.http;
+package kr.ac.hyu.kangdaecheol.calendar.http;
 
 import java.io.BufferedReader;
 import java.io.IOException;

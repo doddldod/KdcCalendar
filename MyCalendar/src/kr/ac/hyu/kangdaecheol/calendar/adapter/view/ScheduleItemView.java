@@ -56,7 +56,7 @@ public class ScheduleItemView extends LinearLayout {
 	
 	@Click(resName="modify")
 	protected void modify() {
-		ModifyScheduleActivity_.intent(activity).id(schedule.getId()).start();
+		Activity_1_ModifySchedule_.intent(activity).id(schedule.getId()).start();
 	}
 	
 	@Click(resName="delete")

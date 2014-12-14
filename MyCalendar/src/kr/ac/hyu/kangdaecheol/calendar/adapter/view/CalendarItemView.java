@@ -7,7 +7,7 @@ import java.util.List;
 import kr.ac.hyu.kangdaecheol.calendar.R;
 import kr.ac.hyu.kangdaecheol.calendar.activity.*;
 import kr.ac.hyu.kangdaecheol.calendar.database.DatabaseManager;
-import kr.ac.hyu.kangdaecheol.calendar.model.Day;
+import kr.ac.hyu.kangdaecheol.calendar.model.MyDate;
 import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
 
 import org.androidannotations.annotations.Bean;
@@ -34,7 +34,7 @@ public class CalendarItemView extends LinearLayout {
 		super(context);
 	}
 
-	public void bind(final Day day) {
+	public void bind(final MyDate day) {
 		int dayInt = day.getDay();
 		if (dayInt != 0) {
 			dayText.setText("" + dayInt);
@@ -44,7 +44,7 @@ public class CalendarItemView extends LinearLayout {
 				
 				@Override
 				public void onClick(View v) {
-					ScheduleActivity_.intent(getContext())
+					Activity_1_ScheduleList_.intent(getContext())
 						.year(day.getYear())
 						.month(day.getMonth())
 						.day(day.getDay())
@@ -64,7 +64,7 @@ public class CalendarItemView extends LinearLayout {
 		}
 	}
 	
-	private Date getDate(Day day) {
+	private Date getDate(MyDate day) {
 		Calendar cal = Calendar.getInstance();
 		cal.clear();
 		cal.set(day.getYear(), day.getMonth(), day.getDay(), 0, 0);

@@ -26,7 +26,7 @@ import android.widget.TextView;
 import com.squareup.otto.Subscribe;
 
 @EActivity(resName="activity_schedule")
-public class ScheduleActivity extends Activity {
+public class Activity_1_ScheduleList extends Activity {
 	
 	@Extra
 	int year;

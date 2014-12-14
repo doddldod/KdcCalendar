@@ -10,7 +10,7 @@ import kr.ac.hyu.kangdaecheol.calendar.adapter.ScheduleAdapter;
 import kr.ac.hyu.kangdaecheol.calendar.database.DatabaseManager;
 import kr.ac.hyu.kangdaecheol.calendar.eventbus.MyBus;
 import kr.ac.hyu.kangdaecheol.calendar.eventbus.UpdateScheduleEvent;
-import kr.ac.hyu.kangdaecheol.calendar.model.Day;
+import kr.ac.hyu.kangdaecheol.calendar.model.MyDate;
 import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
 
 import org.androidannotations.annotations.AfterViews;
@@ -27,7 +27,7 @@ import android.widget.TextView;
 import com.squareup.otto.Subscribe;
 
 @EActivity(resName="activity_weekly")
-public class WeeklyActivity extends Activity {
+public class Activity_1_Weekly extends Activity {
 	
 	@ViewById
 	TextView weekText;
@@ -38,7 +38,7 @@ public class WeeklyActivity extends Activity {
 	
 	private Calendar cal;
 	
-	private List<Day> dayList;
+	private List<MyDate> dayList;
 	
 	int nowWeekNum;
 	int lastWeekNum;
@@ -120,13 +120,13 @@ public class WeeklyActivity extends Activity {
 	
 	private void addCalendarDay() {
 		for (int i = 1; i <= getLastDay(); i++) {
-			dayList.add(new Day(nowYear, nowMonth, i));
+			dayList.add(new MyDate(nowYear, nowMonth, i));
 		}
 	}
 
 	private void addFrontEmptyDay() {
 		for (int i = 0; i < getDayofWeek(); i++) {
-			dayList.add(new Day());
+			dayList.add(new MyDate());
 		}
 	}
 	
@@ -134,14 +134,14 @@ public class WeeklyActivity extends Activity {
 		int remainCardsetCount = dayList.size() % 7;
 		if (remainCardsetCount != 0) {
 			for (int i = 0; i < 7 - remainCardsetCount; i++) {
-				dayList.add(new Day());
+				dayList.add(new MyDate());
 			}
 		}
 	}
 	
 	private void findWeekNum() {
 		for(int i=0; i<dayList.size(); i++) {
-			Day day = dayList.get(i);
+			MyDate day = dayList.get(i);
 			if(day.getDay() == nowDay){
 				nowWeekNum = i / 7 + 1;
 			}
@@ -225,7 +225,7 @@ public class WeeklyActivity extends Activity {
 	
 	@Click(resName="add")
 	void onAdd() {
-		AddScheduleActivity_.intent(this).start();
+		Activity_1_AddSchedule_.intent(this).start();
 	}
 	
 	@Click(resName="back")

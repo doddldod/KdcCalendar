@@ -1,15 +1,15 @@
 package kr.ac.hyu.kangdaecheol.calendar.model;
 
-public class Day implements Comparable<Day> {
+public class MyDate implements Comparable<MyDate> {
 
 	int year;
 	int month;
 	int day;
 	
-	public Day() {
+	public MyDate() {
 	}
 
-	public Day(int year, int month, int day) {
+	public MyDate(int year, int month, int day) {
 		super();
 		this.year = year;
 		this.month = month;
@@ -41,7 +41,7 @@ public class Day implements Comparable<Day> {
 	}
 
 	@Override
-	public int compareTo(Day day) {
+	public int compareTo(MyDate day) {
 		if (this.day > day.getDay()) {
 			return 1;
 		} else if (this.day == day.getDay()) {

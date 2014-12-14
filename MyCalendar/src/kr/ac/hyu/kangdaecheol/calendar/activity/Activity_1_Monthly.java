@@ -16,7 +16,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 @EActivity(resName="activity_monthly")
-public class MonthlyActivity extends Activity {
+public class Activity_1_Monthly extends Activity {
 	
 	@ViewById
 	TextView monthText;
@@ -78,7 +78,7 @@ public class MonthlyActivity extends Activity {
 	
 	@Click(resName="add")
 	void onAdd() {
-		AddScheduleActivity_.intent(this).start();
+		Activity_1_AddSchedule_.intent(this).start();
 	}
 	
 	@Click(resName="back")

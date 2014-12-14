@@ -1,4 +1,4 @@
-package kdc.hanyang.setting;
+package kr.ac.hyu.kangdaecheol.calendar.setting;
 
 public class Setting_Variables {
 	public static String Developer_Num = "+821093311501";

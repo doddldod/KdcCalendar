@@ -2,43 +2,42 @@ package kr.ac.hyu.kangdaecheol.calendar.activity;
 
 import kr.ac.hyu.kangdaecheol.calendar.R;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 @EActivity(resName = "activity_intro")
 public class Activity_Intro extends Activity {
+	
 	@ViewById
-	ImageView Intro_Img;
+	ImageView introImage;
 
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_intro);
+	@AfterViews
+	protected void init() {
+		startIntroAnimation();
+	}
 
-		new Thread(new Runnable() {
-
-			public void run() {
-				try {
-					Intro_Img.setBackgroundResource(R.drawable.img_intro_01);
-					Animation alphaAnim = AnimationUtils.loadAnimation(
-							Activity_Intro.this, R.anim.fade_intro);
-					Intro_Img.startAnimation(alphaAnim);
-					Thread.sleep(1800);
-
-					isIntro();
-				} catch (Exception e) {
-				}
-			}
-		}).start();
+	@Background
+	protected void startIntroAnimation() {
+		introImage.setBackgroundResource(R.drawable.img_intro);
+		Animation alphaAnim = AnimationUtils.loadAnimation(this, R.anim.fade_intro);
+		introImage.startAnimation(alphaAnim);
+		try {
+			Thread.sleep(1800);
+		} catch (Exception e) {
+		}
+		isIntro();
 	}
 
 	private void isIntro() {
 		Activity_Main_.intent(this).start();
 		finish();
 	}
+	
 }

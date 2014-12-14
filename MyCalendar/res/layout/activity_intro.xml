@@ -22,7 +22,7 @@
             android:layout_weight="3" />
 
         <ImageView
-            android:id="@+id/Intro_Img"
+            android:id="@+id/introImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

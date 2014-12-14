@@ -19,7 +19,6 @@
             android:layout_margin="50dp"
             android:scaleType="fitXY"
             android:src="@drawable/main_img" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -32,137 +31,113 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal" >
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/chooseCalendar"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="horizontal"
-                android:padding="2dp" >
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:gravity="center"
+                android:text="@string/str_view"
+                android:textColor="@drawable/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/BT_ViewEvents"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/main_bt"
-                    android:text="@string/str_view"
-                    android:textColor="#454545"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:typeface="normal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/fileIO"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="horizontal"
-                android:padding="2dp" >
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:gravity="center"
+                android:text="@string/str_add"
+                android:textColor="@drawable/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/BT_AddEvents"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/main_bt"
-                    android:text="@string/str_add"
-                    android:textColor="#454545"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:typeface="normal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/upComing"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="horizontal"
-                android:padding="2dp" >
-
-                <Button
-                    android:id="@+id/BT_UpComing"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/main_bt"
-                    android:text="@string/str_upcoming"
-                    android:textColor="#454545"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:typeface="normal" />
-            </LinearLayout>
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:gravity="center"
+                android:text="@string/str_upcoming"
+                android:textColor="@drawable/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="horizontal" >
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/board"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="horizontal"
-                android:padding="2dp" >
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:gravity="center"
+                android:text="@string/str_board"
+                android:textColor="@drawable/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/BT_Board"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/main_bt"
-                    android:text="@string/str_board"
-                    android:textColor="#454545"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:typeface="normal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="horizontal"
-                android:padding="2dp" >
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:gravity="center"
+                android:text="@string/str_email"
+                android:textColor="@drawable/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/BT_Email"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/main_bt"
-                    android:text="@string/str_email"
-                    android:textColor="#454545"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:typeface="normal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="horizontal"
-                android:padding="2dp" >
-
-                <Button
-                    android:id="@+id/BT_About"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/main_bt"
-                    android:text="@string/str_about"
-                    android:textColor="#454545"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:typeface="normal" />
-            </LinearLayout>
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_selector"
+                android:gravity="center"
+                android:text="@string/str_about"
+                android:textColor="@drawable/text_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:paddingRight="20dp"
+            android:text="@string/tv_developer_name"
+            android:textColor="#422424"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:typeface="normal" />
     </LinearLayout>
 
 </LinearLayout>
