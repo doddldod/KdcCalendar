@@ -42,6 +42,18 @@ public class Activity_1_ModifySchedule extends Activity {
 	@ViewById
 	TextView endTime;
 
+	int start_year;
+	int start_monthOfYear;
+	int start_dayOfMonth;
+	int start_hourOfDay;
+	int start_minute;
+
+	int end_year;
+	int end_monthOfYear;
+	int end_dayOfMonth;
+	int end_hourOfDay;
+	int end_minute;
+	
 	@Bean
 	DatabaseManager databaseManager;
 	
@@ -52,9 +64,9 @@ public class Activity_1_ModifySchedule extends Activity {
 		schedule = databaseManager.getScheduleByid(id);
 		editText.setText(schedule.getContents());
 		startDate.setText(getStringFormatedDate(schedule.getStartDate()));
-		startTime.setText(getStringFormatedTime(schedule.getStartTime()));
+		startTime.setText(getStringFormatedTime(schedule.getStartDate()));
 		endDate.setText(getStringFormatedDate(schedule.getEndDate()));
-		endTime.setText(getStringFormatedTime(schedule.getEndTime()));
+		endTime.setText(getStringFormatedTime(schedule.getEndDate()));
 	}
 
 	private CharSequence getStringFormatedDate(Date date) {
@@ -95,12 +107,12 @@ public class Activity_1_ModifySchedule extends Activity {
 	
 	@Click(resName="startTime")
 	protected void onStartTime() {
-		showTimeDialog(schedule.getStartTime(), myStartTimeSetListener);
+		showTimeDialog(schedule.getStartDate(), myStartTimeSetListener);
 	}
 
 	@Click(resName="endTime")
 	protected void onEndTime() {
-		showTimeDialog(schedule.getStartTime(), myEndTimeSetListener);
+		showTimeDialog(schedule.getEndDate(), myEndTimeSetListener);
 	}
 	
 	private boolean isTextLenNotZero() {
@@ -108,8 +120,8 @@ public class Activity_1_ModifySchedule extends Activity {
 	}
 
 	private boolean isValidStartEndDate() {
-		long startTimeMil = schedule.getStartDate().getTime() + schedule.getStartTime().getTime();
-		long endTimeMil = schedule.getEndDate().getTime() + schedule.getEndTime().getTime();
+		long startTimeMil = schedule.getStartDate().getTime() + schedule.getStartDate().getTime();
+		long endTimeMil = schedule.getEndDate().getTime() + schedule.getEndDate().getTime();
 		return startTimeMil < endTimeMil;
 	}
 
@@ -144,50 +156,67 @@ public class Activity_1_ModifySchedule extends Activity {
         dlgTime.show();
 	}
 
-	private Date getDate(int year, int monthOfYear, int dayOfMont) {
+	private Date getDate(int year, int monthOfYear, int dayOfMont,
+			int hourOfDay, int minute) {
 		Calendar cal = Calendar.getInstance();
 		cal.clear();
-		cal.set(year, monthOfYear, dayOfMont, 0, 0);
-		return cal.getTime();
-	}
-
-	private Date getTime(int hourOfDay, int minute) {
-		Calendar cal = Calendar.getInstance();
-		cal.clear();
-		cal.set(0, 0, 0, hourOfDay, minute);
+		cal.set(year, monthOfYear, dayOfMont, hourOfDay, minute);
 		return cal.getTime();
 	}
 
 	private DatePickerDialog.OnDateSetListener myStartDateListener = new DatePickerDialog.OnDateSetListener() {
 
-		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-			schedule.setStartDate(getDate(year, monthOfYear, dayOfMonth));
+		public void onDateSet(DatePicker view, int year, int monthOfYear,
+				int dayOfMonth) {
+
+			start_year = year;
+			start_monthOfYear = monthOfYear;
+			start_dayOfMonth = dayOfMonth;
+
+			schedule.setStartDate(getDate(start_year, start_monthOfYear,
+					start_dayOfMonth, start_hourOfDay, start_minute));
 			startDate.setText(getStringFormatedDate(schedule.getStartDate()));
+
 		}
 	};
-	
+
 	private DatePickerDialog.OnDateSetListener myEndDateListener = new DatePickerDialog.OnDateSetListener() {
 
-		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-			schedule.setEndDate(getDate(year, monthOfYear, dayOfMonth));
+		public void onDateSet(DatePicker view, int year, int monthOfYear,
+				int dayOfMonth) {
+			end_year = year;
+			end_monthOfYear = monthOfYear;
+			end_dayOfMonth = dayOfMonth;
+
+			schedule.setEndDate(getDate(end_year, end_monthOfYear,
+					end_dayOfMonth, end_hourOfDay, end_minute));
 			endDate.setText(getStringFormatedDate(schedule.getEndDate()));
+
 		}
 	};
-	
+
 	private TimePickerDialog.OnTimeSetListener myStartTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-		
+
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-			schedule.setStartTime(getTime(hourOfDay, minute));
-			startTime.setText(getStringFormatedTime(schedule.getStartTime()));
+			start_hourOfDay = hourOfDay;
+			start_minute = minute;
+
+			schedule.setStartDate(getDate(start_year, start_monthOfYear,
+					start_dayOfMonth, start_hourOfDay, start_minute));
+			startTime.setText(getStringFormatedTime(schedule.getStartDate()));
 		}
 	};
 
 	private TimePickerDialog.OnTimeSetListener myEndTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-		
+
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-			schedule.setEndTime(getTime(hourOfDay, minute));
-			endTime.setText(getStringFormatedTime(schedule.getEndTime()));
+			end_hourOfDay = hourOfDay;
+			end_minute = minute;
+
+			schedule.setEndDate(getDate(end_year, end_monthOfYear,
+					end_dayOfMonth, end_hourOfDay, end_minute));
+
+			endTime.setText(getStringFormatedTime(schedule.getEndDate()));
 		}
 	};
-
 }

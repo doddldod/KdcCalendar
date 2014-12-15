@@ -1,59 +1,48 @@
 <resources>
 
     <string name="app_name">MyCalendar</string>
-
-    <string name="sun">일</string>
-    <string name="mon">월</string>
-    <string name="tue">화</string>
-    <string name="wed">수</string>
-    <string name="thu">목</string>
-    <string name="fri">금</string>
-    <string name="sat">토</string>
-
-    <string name="mainTitle">일정보기</string>
-    <string name="monthly">월별</string>
-    <string name="weekly">주별</string>
-
-    <string name="monthTitle">월별 일정</string>
-    <string name="monthText">%1$d년 %2$d월</string>
-    <string name="prevMonth">이전 달</string>
-    <string name="nextMonth">다음 달</string>
-
-    <string name="weeklyTitle">주별 일정</string>
-    <string name="weekText">%1$d년 %2$d월 %3$d주차</string>
-    <string name="prevWeek">이전 주</string>
-    <string name="nextWeek">다음 주</string>
-
-    <string name="scheduleTitle">%1$d년 %2$d월  %3$d일</string>
-    <string name="scheduleAdd">추가</string>
-    <string name="scheduleStartOverEnd">시작일이 종료일보다 클 수 없습니다.\n 다시 입력해주세요.</string>
-    <string name="scheduleDateNull">시작일과 종료일을 입력해주세요.</string>
-    <string name="scheduleTextNull">내용을 입력해주세요.</string>
-    
-    <string name="scheduleEmpty">일정 목록이 없습니다.</string>
-    <string name="scheduleAddTitle">일정추가</string>
-    
-    <string name="scheduleContents">내용</string>
-    <string name="scheduleStart">시작일</string>
-    <string name="scheduleStartHint1">시작 일자를 입력</string>
-    <string name="scheduleStartHint2">시작 시간을 입력</string>
-    <string name="scheduleEnd">종료일</string>
-    <string name="scheduleEndHint1">종료 일자를 입력</string>
-    <string name="scheduleEndHint2">종료 시간을 입력</string>
-
-    <string name="ok">확인</string>
-    <string name="modify">수정</string>
-    <string name="delete">삭제</string>
+    <string name="sun">Sun</string>
+    <string name="mon">Mon</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="thu">Thu</string>
+    <string name="fri">Fri</string>
+    <string name="sat">Sat</string>
+    <string name="mainTitle">View Schedule</string>
+    <string name="monthly">Monthly</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthTitle">Monthly Schedule</string>
+    <string name="monthText">%1$d year %2$d month</string>
+    <string name="prevMonth">prevM</string>
+    <string name="nextMonth">nextM</string>
+    <string name="weeklyTitle">Weekly Schedule</string>
+    <string name="weekText">%1$d year %2$d month\n%3$d week</string>
+    <string name="prevWeek">prevW</string>
+    <string name="nextWeek">nextW</string>
+    <string name="scheduleTitle">%1$d year %2$d month %3$d day</string>
+    <string name="scheduleAdd">Add</string>
+    <string name="scheduleStartOverEnd">StartDate can not be greater than EndDate\n Please type again</string>
+    <string name="scheduleDateNull">StartDate and EndDate should not be null</string>
+    <string name="scheduleTextNull">Type content.</string>
+    <string name="scheduleEmpty">Schedule is empty</string>
+    <string name="scheduleAddTitle">Add Schedule</string>
+    <string name="scheduleContents">Content</string>
+    <string name="scheduleStart">Start</string>
+    <string name="scheduleStartHint1">StartDate</string>
+    <string name="scheduleStartHint2">StartTime</string>
+    <string name="scheduleEnd">End</string>
+    <string name="scheduleEndHint1">EndDate</string>
+    <string name="scheduleEndHint2">EndTime</string>
+    <string name="ok">OK</string>
+    <string name="modify">Modify</string>
+    <string name="delete">Delete</string>
     <string name="to">~</string>
-    
-    <string name="deletedMsg">삭제 되었습니다.</string>
-    <string name="addedMsg">추가 되었습니다.</string>
-    <string name="modifyMsg">수정 되었습니다.</string>
-    
+    <string name="deletedMsg">It has been deleted</string>
+    <string name="addedMsg">It has been added</string>
+    <string name="modifyMsg">It has been modified</string>
     <string name="upcomingTitle">Upcoming Events</string>
-
     <string name="str_view">View</string>
-    <string name="str_add">Add</string>
+    <string name="str_fileio">File IO</string>
     <string name="str_upcoming">Upcoming</string>
     <string name="str_board">Board</string>
     <string name="str_email">Email</string>
@@ -77,8 +66,21 @@
     <string name="bt_submit">Submit</string>
     <string name="NoLogin">You have to sign in googlle</string>
     <string name="NothingInContent">Nothing in Memo</string>
+    <string name="NothingInSchedule">Nothing in Schedule</string>
     <string name="Title_Delete">Delete</string>
     <string name="BT_Delete">The msg has been deleted</string>
     <string name="BT_CantDelete">You don\'t have permission to delete it</string>
     
+    <string name="fileio">File IO</string>
+    <string name="save">Save</string>
+    <string name="load">Load</string>
+        
+    <string name="saved">It have been saved</string>
+    <string name="fileError">FileIO Error</string>
+    <string name="loadfromfile">Schedules are loaded from file</string>
+    
+    <string name="repeat">Repeat</string>
+    <string name="clear">Clear</string>
+	<string name="dbclear">DB has been cleared</string>
+	
 </resources>

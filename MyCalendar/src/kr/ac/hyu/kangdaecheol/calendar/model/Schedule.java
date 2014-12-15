@@ -17,13 +17,7 @@ public class Schedule {
 	private Date startDate;
 
 	@DatabaseField
-	private Date startTime;
-
-	@DatabaseField
 	private Date endDate;
-
-	@DatabaseField
-	private Date endTime;
 
 	public int getId() {
 		return id;
@@ -49,28 +43,12 @@ public class Schedule {
 		this.startDate = startDate;
 	}
 
-	public Date getStartTime() {
-		return startTime;
-	}
-
-	public void setStartTime(Date startTime) {
-		this.startTime = startTime;
-	}
-
 	public Date getEndDate() {
 		return endDate;
 	}
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
-	}
-
-	public Date getEndTime() {
-		return endTime;
-	}
-
-	public void setEndTime(Date endTime) {
-		this.endTime = endTime;
 	}
 
 }

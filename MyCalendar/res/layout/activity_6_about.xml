@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#555555"
+    android:background="@drawable/gray_background"
     android:orientation="vertical"
     android:paddingBottom="10dp"
     android:paddingLeft="20dp"
@@ -24,7 +24,7 @@
             android:gravity="center_vertical"
             android:text="@string/tv_detail"
             android:textAppearance="?android:attr/textAppearanceLargeInverse"
-            android:textColor="#ffffff"
+            android:textColor="#004554"
             android:textSize="25sp"
             android:textStyle="bold"
             android:typeface="sans" />
@@ -34,7 +34,7 @@
             android:layout_height="2dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="#ffffff" />
+            android:background="#247B8A" />
 
         <TextView
             android:layout_width="match_parent"
@@ -45,7 +45,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/tv_detail_name"
             android:textAppearance="?android:attr/textAppearanceLargeInverse"
-            android:textColor="#ffffff"
+            android:textColor="#353535"
             android:textSize="22sp"
             android:textStyle="bold"
             android:typeface="sans" />
@@ -59,7 +59,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/tv_detail_vers"
             android:textAppearance="?android:attr/textAppearanceLargeInverse"
-            android:textColor="#ffffff"
+            android:textColor="#353535"
             android:textSize="22sp"
             android:textStyle="bold"
             android:typeface="sans" />
@@ -73,7 +73,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:text="with Android Team"
             android:textAppearance="?android:attr/textAppearanceLargeInverse"
-            android:textColor="#ffffff"
+            android:textColor="#353535"
             android:textSize="22sp"
             android:textStyle="bold"
             android:typeface="sans" />
@@ -96,7 +96,7 @@
             android:gravity="center_vertical"
             android:text="@string/tv_developer"
             android:textAppearance="?android:attr/textAppearanceLargeInverse"
-            android:textColor="#ffffff"
+            android:textColor="#004554"
             android:textSize="25sp"
             android:textStyle="bold"
             android:typeface="sans" />
@@ -106,7 +106,7 @@
             android:layout_height="2dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="#ffffff" />
+            android:background="#247B8A" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,7 +116,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:background="@drawable/background_s"
+            android:background="@drawable/board_back_white"
             android:orientation="vertical" >
 
             <TextView
@@ -128,20 +128,19 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/tv_developer_name"
                 android:textAppearance="?android:attr/textAppearanceLargeInverse"
-                android:textColor="#ffffff"
+                android:textColor="#353535"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="sans" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="10dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_weight="1"
                 android:gravity="center_vertical|center_horizontal"
                 android:textAppearance="?android:attr/textAppearanceLargeInverse"
-                android:textColor="#ffffff"
+                android:textColor="#353535"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="sans" />
@@ -155,7 +154,7 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/tv_developer_univ"
                 android:textAppearance="?android:attr/textAppearanceLargeInverse"
-                android:textColor="#ffffff"
+                android:textColor="#353535"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="sans" />
@@ -170,7 +169,7 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/tv_developer_num"
                 android:textAppearance="?android:attr/textAppearanceLargeInverse"
-                android:textColor="#ffffff"
+                android:textColor="#353535"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="sans" />
@@ -185,7 +184,7 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:text="@string/tv_developer_email"
                 android:textAppearance="?android:attr/textAppearanceLargeInverse"
-                android:textColor="#ffffff"
+                android:textColor="#353535"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:typeface="sans" />
@@ -195,7 +194,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:orientation="vertical" >
 
         <TextView
@@ -204,18 +203,19 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="#ffffff" />
+            android:background="#247B8A" />
 
         <TextView
             android:id="@+id/webview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/button_selector"
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/tv_dcslab"
             android:textAppearance="?android:attr/textAppearanceLargeInverse"
-            android:textColor="#ffffff"
-            android:textSize="25sp"
+            android:textColor="@drawable/text_white"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:typeface="sans" />
 

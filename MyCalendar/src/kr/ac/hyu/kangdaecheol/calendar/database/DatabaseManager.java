@@ -13,12 +13,14 @@ import org.androidannotations.annotations.RootContext;
 
 import android.content.Context;
 
-@EBean(scope=Scope.Singleton)
+import com.j256.ormlite.dao.Dao;
+
+@EBean(scope = Scope.Singleton)
 public class DatabaseManager {
-	
+	private static final String DATABASE_NAME = "ScheduleListDB.sqlite";
 	@RootContext
 	Context context;
-	
+
 	private DatabaseHelper helper;
 
 	@AfterInject
@@ -29,7 +31,7 @@ public class DatabaseManager {
 	private DatabaseHelper getHelper() {
 		return helper;
 	}
-	
+
 	public Schedule getScheduleByid(int id) {
 		try {
 			return getHelper().getScheduleDao().queryForId(id);
@@ -37,13 +39,20 @@ public class DatabaseManager {
 			return null;
 		}
 	}
-	
+
 	public List<Schedule> getAllScheduleList(Date date) {
 		try {
 			return getHelper().getScheduleDao().queryBuilder()
-					.orderBy("endDate", false)
-					.where()
-					.le("startDate", date)
+					.orderBy("id", false).query();
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+
+	public List<Schedule> getUpcomingAllScheduleList(Date date) {
+		try {
+			return getHelper().getScheduleDao().queryBuilder()
+					.orderBy("endDate", false).where().ge("endDate", date)
 					.query();
 		} catch (SQLException e) {
 			return null;
@@ -53,25 +62,23 @@ public class DatabaseManager {
 	public List<Schedule> getScheduleListByDate(Date date) {
 		try {
 			return getHelper().getScheduleDao().queryBuilder().where()
-					.le("startDate", date).and()
-					.ge("endDate", date)
-					.query();
+					.le("startDate", date).and().ge("endDate", date).query();
 		} catch (SQLException e) {
 			return null;
 		}
 	}
-	
+
 	public List<Schedule> getWeeklyScheduleList(Date startDate, Date endDate) {
 		try {
-			return getHelper().getScheduleDao().queryBuilder().where()
+			return getHelper().getScheduleDao().queryBuilder()
+					.orderBy("endDate", false).where()
 					.between("startDate", startDate, endDate).or()
-					.between("endDate", startDate, endDate)
-					.query();
+					.between("endDate", startDate, endDate).query();
 		} catch (SQLException e) {
 			return null;
 		}
 	}
-	
+
 	public void addSchedule(Schedule schedule) {
 		try {
 			getHelper().getScheduleDao().create(schedule);
@@ -79,7 +86,7 @@ public class DatabaseManager {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void updateSchedule(Schedule schedule) {
 		try {
 			getHelper().getScheduleDao().update(schedule);
@@ -95,5 +102,8 @@ public class DatabaseManager {
 			e.printStackTrace();
 		}
 	}
+
+//	public void deleteAllSchedule() throws SQLException {
+//	}
 
 }

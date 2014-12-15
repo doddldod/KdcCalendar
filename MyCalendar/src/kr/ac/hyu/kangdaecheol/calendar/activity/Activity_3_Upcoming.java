@@ -53,7 +53,7 @@ public class Activity_3_Upcoming extends Activity {
 	}
 	
 	private void setList() {
-		List<Schedule> list = databaseManager.getAllScheduleList(new Date());
+		List<Schedule> list = databaseManager.getUpcomingAllScheduleList(new Date());
 		if (list != null && list.size() > 0) {
 			empty.setVisibility(View.GONE);
 			listView.setVisibility(View.VISIBLE);
