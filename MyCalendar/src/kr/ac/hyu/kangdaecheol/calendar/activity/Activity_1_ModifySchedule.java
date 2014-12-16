@@ -122,7 +122,7 @@ public class Activity_1_ModifySchedule extends Activity {
 	private boolean isValidStartEndDate() {
 		long startTimeMil = schedule.getStartDate().getTime() + schedule.getStartDate().getTime();
 		long endTimeMil = schedule.getEndDate().getTime() + schedule.getEndDate().getTime();
-		return startTimeMil < endTimeMil;
+		return startTimeMil <= endTimeMil;
 	}
 
 	private void mpdifySchedule() {

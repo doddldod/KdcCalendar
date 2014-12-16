@@ -187,12 +187,11 @@ public class Activity_1_AddSchedule_Repeat extends Activity {
 	private boolean isValidStartEndDate() {
 		long startTimeMil = schedule.getStartDate().getTime();
 		long endTimeMil = schedule.getEndDate().getTime();
-		return startTimeMil < endTimeMil;
+		return startTimeMil <= endTimeMil;
 	}
 
 	@SuppressWarnings("deprecation")
 	private void addSchedule() {
-		// schedule.setContents(editText.getText().toString());
 
 		Schedule newSchedule = new Schedule();
 

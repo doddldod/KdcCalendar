@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 
 @EActivity(resName = "activity_intro")
 public class Activity_Intro extends Activity {
@@ -26,6 +27,7 @@ public class Activity_Intro extends Activity {
 	@Background
 	protected void startIntroAnimation() {
 		introImage.setBackgroundResource(R.drawable.img_intro);
+		introImage.setScaleType(ScaleType.FIT_CENTER);
 		Animation alphaAnim = AnimationUtils.loadAnimation(this, R.anim.fade_intro);
 		introImage.startAnimation(alphaAnim);
 		try {
