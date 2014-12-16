@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission." />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	
+	
     <uses-sdk
         android:minSdkVersion="9"
         android:targetSdkVersion="19" />
@@ -58,6 +59,11 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+                <activity
+            android:name=".activity.Activity_1_AddSchedule_Repeat_"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
         <activity
             android:name=".activity.Activity_1_ModifySchedule_"
             android:screenOrientation="portrait"
@@ -83,6 +89,12 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+         <activity
+            android:name=".receiver.AlarmReceiver_"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <receiver android:name="AlarmReceiver" />
     </application>
 
 </manifest>

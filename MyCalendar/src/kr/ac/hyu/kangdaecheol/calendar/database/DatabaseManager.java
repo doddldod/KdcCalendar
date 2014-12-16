@@ -49,9 +49,9 @@ public class DatabaseManager {
 		}
 	}
 
-	public List<Schedule> getUpcomingAllScheduleList(Date date) {
+	public List<Schedule> getUpcomingAllScheduleList(Date date,Long maxRow) {
 		try {
-			return getHelper().getScheduleDao().queryBuilder()
+			return getHelper().getScheduleDao().queryBuilder().limit(maxRow)
 					.orderBy("endDate", false).where().ge("endDate", date)
 					.query();
 		} catch (SQLException e) {
@@ -103,7 +103,5 @@ public class DatabaseManager {
 		}
 	}
 
-//	public void deleteAllSchedule() throws SQLException {
-//	}
 
 }

@@ -1,9 +1,12 @@
 package kr.ac.hyu.kangdaecheol.calendar.activity;
 
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
 
 import kr.ac.hyu.kangdaecheol.calendar.R;
 import kr.ac.hyu.kangdaecheol.calendar.database.DatabaseManager;
+import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
 
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
@@ -11,6 +14,7 @@ import org.androidannotations.annotations.EActivity;
 
 import android.app.Activity;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Toast;
 
 @EActivity(resName = "activity_cal_main")
@@ -30,15 +34,16 @@ public class Activity_1_ChooseCalendar extends Activity {
 
 	@Click(resName = "repeat")
 	void onRepeat() {
-		// Activity_1_Weekly_.intent(this).start();
+		Activity_1_AddSchedule_Repeat_.intent(this).start();
 	}
 
 	@Click(resName = "clear")
 	void onClear() {
-		try {
-//			databaseManager.deleteAllSchedule();
-		} catch (Exception e) {
-			e.printStackTrace();
+		List<Schedule> list = databaseManager
+				.getAllScheduleList(new Date());
+		for ( int i = 0 ; i < list.size(); i ++)
+		{
+			databaseManager.deleteSchedule(list.get(i));
 		}
 		Toast.makeText(getApplicationContext(), getString(R.string.dbclear),
 				Toast.LENGTH_SHORT).show();
@@ -46,6 +51,8 @@ public class Activity_1_ChooseCalendar extends Activity {
 
 	@Click(resName = "back")
 	protected void onClickBack() {
+		Activity_Main_.intent(this).start();
+		this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 		finish();
 	}
 

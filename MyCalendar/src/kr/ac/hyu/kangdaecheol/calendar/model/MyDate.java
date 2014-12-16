@@ -40,6 +40,7 @@ public class MyDate implements Comparable<MyDate> {
 		this.day = day;
 	}
 
+	
 	@Override
 	public int compareTo(MyDate day) {
 		if (this.day > day.getDay()) {

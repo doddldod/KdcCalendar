@@ -23,7 +23,7 @@
     <string name="scheduleAdd">Add</string>
     <string name="scheduleStartOverEnd">StartDate can not be greater than EndDate\n Please type again</string>
     <string name="scheduleDateNull">StartDate and EndDate should not be null</string>
-    <string name="scheduleTextNull">Type content.</string>
+    <string name="scheduleTextNull">Type content</string>
     <string name="scheduleEmpty">Schedule is empty</string>
     <string name="scheduleAddTitle">Add Schedule</string>
     <string name="scheduleContents">Content</string>
@@ -70,17 +70,17 @@
     <string name="Title_Delete">Delete</string>
     <string name="BT_Delete">The msg has been deleted</string>
     <string name="BT_CantDelete">You don\'t have permission to delete it</string>
-    
     <string name="fileio">File IO</string>
     <string name="save">Save</string>
     <string name="load">Load</string>
-        
     <string name="saved">It have been saved</string>
     <string name="fileError">FileIO Error</string>
     <string name="loadfromfile">Schedules are loaded from file</string>
-    
     <string name="repeat">Repeat</string>
     <string name="clear">Clear</string>
-	<string name="dbclear">DB has been cleared</string>
-	
+    <string name="dbclear">DB has been cleared</string>
+    <string name="howmanyupcoming">How many Upcoming Events?</string>
+    <string name="regist">Regist</string>
+    <string name="dayofweek">Select day of week</string>
+
 </resources>

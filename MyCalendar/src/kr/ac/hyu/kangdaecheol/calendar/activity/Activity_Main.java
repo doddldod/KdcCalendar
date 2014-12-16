@@ -41,7 +41,7 @@ public class Activity_Main extends Activity {
 
 	@Bean
 	DatabaseManager databaseManager;
-	
+
 	private Handler mHandler;
 	private boolean mFlag = false;
 	private Toast mToast;
@@ -52,7 +52,7 @@ public class Activity_Main extends Activity {
 		setLayout();
 	}
 
-	@SuppressLint("HandlerLeak") 
+	@SuppressLint("HandlerLeak")
 	public void setLayout() {
 		mHandler = new Handler() {
 			@Override
@@ -64,20 +64,21 @@ public class Activity_Main extends Activity {
 		};
 	}
 
-	
-	@Click(resName="chooseCalendar")
+	@Click(resName = "chooseCalendar")
 	void onClickChooseCalendar() {
 		Activity_1_ChooseCalendar_.intent(this).start();
 		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		finish();
 	}
 
-	@Click(resName="fileIO")
+	@Click(resName = "fileIO")
 	void onClickFileIO() {
 		showFileIODialog();
 	}
-	
+
 	void showFileIODialog() {
-		final CharSequence[] items = { getString(R.string.save), getString(R.string.load) };
+		final CharSequence[] items = { getString(R.string.save),
+				getString(R.string.load) };
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -105,39 +106,63 @@ public class Activity_Main extends Activity {
 		AlertDialog dialog = builder.create();
 		dialog.show();
 	}
-	
-	@Click(resName="board")
+
+	@Click(resName = "board")
 	void onClickBoard() {
 		Activity_4_Board_.intent(this).start();
 		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		finish();
 	}
-	
-	@Click(resName="email")
+
+	@Click(resName = "email")
 	void onClickEmail() {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("message/rfc822");
-		intent.putExtra(Intent.EXTRA_EMAIL, new String[] { Setting_Variables.Developer_Email });
+		intent.putExtra(Intent.EXTRA_EMAIL,
+				new String[] { Setting_Variables.Developer_Email });
 		intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
 		intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.email_body));
-		startActivity(Intent.createChooser(intent, getString(R.string.email_send)));
-		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-	}
-	
-	@Click(resName="about")
-	void onClickAbout() {
-		Activity_6_About_.intent(this).start();
+		startActivity(Intent.createChooser(intent,
+				getString(R.string.email_send)));
 		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 	}
 
-	@Click(resName="upComing")
-	void onClickUpComing() {
-		Activity_3_Upcoming_.intent(this).start();
+	@Click(resName = "about")
+	void onClickAbout() {
+		Activity_6_About_.intent(this).start();
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		finish();
 	}
-	
+
+	@Click(resName = "upComing")
+	void onClickUpComing() {
+		showUpComingDialog();
+	}
+
+	void showUpComingDialog() {
+		final CharSequence[] items = { "10", "20", "50" };
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder.setTitle(getString(R.string.howmanyupcoming)).setItems(items,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int index) {
+						Activity_3_Upcoming_.intent(Activity_Main.this)
+								.howmany(String.valueOf(items[index])).start();
+						overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+						finish();
+					}
+				});
+
+		AlertDialog dialog = builder.create();
+		dialog.show();
+	}
+
 	public void showToast(String mText) {
 		if (mText != null) {
 			if (mToast == null) {
-				mToast = Toast.makeText(getApplicationContext(), mText, Toast.LENGTH_SHORT);
+				mToast = Toast.makeText(getApplicationContext(), mText,
+						Toast.LENGTH_SHORT);
 			} else {
 				mToast.setText(mText);
 			}
@@ -180,8 +205,8 @@ public class Activity_Main extends Activity {
 				for (int i = 0; i < list.size(); i++) {
 
 					onTextWriting(fos, buw, list.get(i).getId(), list.get(i)
-							.getContents(), list.get(i).getStartDate(),  list.get(i)
-							.getEndDate());
+							.getContents(), list.get(i).getStartDate(), list
+							.get(i).getEndDate());
 
 				}
 				buw.close();
@@ -195,8 +220,7 @@ public class Activity_Main extends Activity {
 	}
 
 	private void onTextWriting(FileOutputStream fos, BufferedWriter buw,
-			int id, String contents, Date startdate, 
-			Date enddate) {
+			int id, String contents, Date startdate, Date enddate) {
 		try {
 			buw.write(id + "\n");
 			buw.write(contents + "\n");
@@ -206,20 +230,18 @@ public class Activity_Main extends Activity {
 		}
 	}
 
-	
 	void LoadFromFile() throws ParseException, SQLException {
 		String strBuf = ReadTextFile();
 		StringTokenizer st = new StringTokenizer(strBuf);
-		
+
 		String str_start_date;
 		String str_end_date;
 
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
 				"EEE MMM dd HH:mm:ss z yyyy", Locale.US);
 
-		
-//		databaseManager.deleteAllSchedule();
-		
+		// databaseManager.deleteAllSchedule();
+
 		while (st.hasMoreTokens()) {
 			Date start_date = null;
 			Date end_date = null;
@@ -235,36 +257,37 @@ public class Activity_Main extends Activity {
 
 			databaseManager.addSchedule(sd);
 		}
-		
-		Toast.makeText(this, getString(R.string.loadfromfile), Toast.LENGTH_SHORT).show();
+
+		Toast.makeText(this, getString(R.string.loadfromfile),
+				Toast.LENGTH_SHORT).show();
 	}
 
-    public String ReadTextFile() {
-        String text = null;
-        try {
-        	
-        	File file;
+	public String ReadTextFile() {
+		String text = null;
+		try {
+
+			File file;
 			file = new File(Setting_Variables.path);
 			if (!file.exists()) {
 				file.mkdirs();
 			}
 			file = new File(Setting_Variables.path + File.separator
 					+ "db_mycalendar.txt");
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(file), "UTF-8"));
 
-			String line ="";
+			String line = "";
 			StringBuilder txt = new StringBuilder();
-			while((line = br.readLine()) != null)
-			{
-				txt.append(line +"\n");
+			while ((line = br.readLine()) != null) {
+				txt.append(line + "\n");
 			}
-            text = new String(txt);
-            br.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
- 
-        return text;
-    }
- 
+			text = new String(txt);
+			br.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+
+		return text;
+	}
+
 }

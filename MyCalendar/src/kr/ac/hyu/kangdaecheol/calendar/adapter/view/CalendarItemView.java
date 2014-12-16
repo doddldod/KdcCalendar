@@ -60,6 +60,7 @@ public class CalendarItemView extends LinearLayout {
 			}
 		} else {
 			dayText.setText("");
+			status.setText("");
 			setBackgroundResource(R.drawable.datebox_default_off);
 		}
 	}
