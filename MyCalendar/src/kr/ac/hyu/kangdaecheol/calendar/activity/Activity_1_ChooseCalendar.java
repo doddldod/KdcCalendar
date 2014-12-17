@@ -39,14 +39,19 @@ public class Activity_1_ChooseCalendar extends Activity {
 
 	@Click(resName = "clear")
 	void onClear() {
-		List<Schedule> list = databaseManager
-				.getAllScheduleList(new Date());
-		for ( int i = 0 ; i < list.size(); i ++)
-		{
-			databaseManager.deleteSchedule(list.get(i));
-		}
-		Toast.makeText(getApplicationContext(), getString(R.string.dbclear),
-				Toast.LENGTH_SHORT).show();
+//		List<Schedule> list = databaseManager
+//				.getAllScheduleList(new Date());
+//		for ( int i = 0 ; i < list.size(); i ++)
+//		{
+//			databaseManager.deleteSchedule(list.get(i));
+//		}
+//		Toast.makeText(getApplicationContext(), getString(R.string.dbclear),
+//				Toast.LENGTH_SHORT).show();
+		try {
+	         databaseManager.deleteAllSchedule();
+	         Toast.makeText(getApplicationContext(), getString(R.string.dbclear), Toast.LENGTH_SHORT).show();
+	      } catch (Exception e) {
+	      }
 	}
 
 	@Click(resName = "back")

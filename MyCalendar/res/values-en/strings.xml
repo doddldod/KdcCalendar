@@ -73,7 +73,7 @@
     <string name="fileio">File IO</string>
     <string name="save">Save</string>
     <string name="load">Load</string>
-    <string name="saved">It have been saved</string>
+    <string name="saved">It has been saved</string>
     <string name="fileError">FileIO Error</string>
     <string name="loadfromfile">Schedules are loaded from file</string>
     <string name="repeat">Repeat</string>
@@ -82,5 +82,6 @@
     <string name="howmanyupcoming">How many Upcoming Events?</string>
     <string name="regist">Regist</string>
     <string name="dayofweek">Select day of week</string>
-
+	<string name="backuptoemail">Backup to email</string>
+	<string name="backup">Backup</string>
 </resources>

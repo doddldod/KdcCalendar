@@ -13,7 +13,7 @@ import org.androidannotations.annotations.RootContext;
 
 import android.content.Context;
 
-import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.table.TableUtils;
 
 @EBean(scope = Scope.Singleton)
 public class DatabaseManager {
@@ -49,7 +49,7 @@ public class DatabaseManager {
 		}
 	}
 
-	public List<Schedule> getUpcomingAllScheduleList(Date date,Long maxRow) {
+	public List<Schedule> getUpcomingAllScheduleList(Date date, Long maxRow) {
 		try {
 			return getHelper().getScheduleDao().queryBuilder().limit(maxRow)
 					.orderBy("endDate", false).where().ge("endDate", date)
@@ -103,5 +103,8 @@ public class DatabaseManager {
 		}
 	}
 
-
+	public void deleteAllSchedule() throws SQLException {
+		TableUtils
+				.clearTable(getHelper().getConnectionSource(), Schedule.class);
+	}
 }

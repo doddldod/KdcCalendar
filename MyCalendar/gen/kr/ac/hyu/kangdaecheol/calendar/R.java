@@ -126,6 +126,8 @@ public final class R {
         public static final int Title_Delete=0x7f050043;
         public static final int addedMsg=0x7f050026;
         public static final int app_name=0x7f050000;
+        public static final int backup=0x7f050053;
+        public static final int backuptoemail=0x7f050052;
         public static final int bt_submit=0x7f05003f;
         public static final int clear=0x7f05004d;
         public static final int dayofweek=0x7f050051;

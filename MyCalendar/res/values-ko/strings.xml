@@ -81,5 +81,6 @@
     <string name="dbclear">DB가 초기화 되었습니다</string>
     <string name="howmanyupcoming">몇개의 Upcoming 스케줄을?</string>
     <string name="dayofweek">요일을 선택하세요</string>
-
+    <string name="backuptoemail">이메일로 백업하기</string>
+    <string name="backup">백업</string>
 </resources>

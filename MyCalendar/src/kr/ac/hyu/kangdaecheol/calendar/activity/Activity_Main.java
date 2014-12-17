@@ -26,11 +26,14 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
@@ -116,15 +119,65 @@ public class Activity_Main extends Activity {
 
 	@Click(resName = "email")
 	void onClickEmail() {
-		Intent intent = new Intent(Intent.ACTION_SEND);
-		intent.setType("message/rfc822");
-		intent.putExtra(Intent.EXTRA_EMAIL,
-				new String[] { Setting_Variables.Developer_Email });
-		intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject));
-		intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.email_body));
-		startActivity(Intent.createChooser(intent,
-				getString(R.string.email_send)));
-		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+		final CharSequence[] items = { "Yes", "No" };
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder.setTitle(getString(R.string.backuptoemail)).setItems(items,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int index) {
+						if (index == 0) {
+							String str = "";
+							try {
+								getAccount();
+								SaveToFile();
+								str = ReadTextFile();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+							Intent intent = new Intent(Intent.ACTION_SEND);
+							intent.setType("message/rfc822");
+							intent.putExtra(
+									Intent.EXTRA_EMAIL,
+									new String[] { Setting_Variables.User_Email });
+							intent.putExtra(Intent.EXTRA_SUBJECT,
+									getString(R.string.backup));
+							intent.putExtra(Intent.EXTRA_TEXT, "\n\n" + str);
+							intent.putExtra(
+									Intent.EXTRA_STREAM,
+									Uri.parse("file:///"
+											+ Setting_Variables.path
+											+ File.separator
+											+ "db_mycalendar.txt"));
+
+							startActivity(Intent.createChooser(intent,
+									getString(R.string.email_send)));
+							overridePendingTransition(R.anim.fade_in,
+									R.anim.fade_out);
+						} else if (index == 1) {
+
+						}
+					}
+				});
+
+		AlertDialog dialog = builder.create();
+		dialog.show();
+
+	}
+
+	private void getAccount() {
+		AccountManager manager = AccountManager.get(this);
+		Account[] accounts = manager.getAccounts();
+		final int count = accounts.length;
+		Account account = null;
+
+		for (int i = 0; i < count; i++) {
+			account = accounts[i];
+			if (account.type.equals("com.google")) {
+				Setting_Variables.User_Email = account.name;
+			}
+		}
 	}
 
 	@Click(resName = "about")
@@ -149,7 +202,8 @@ public class Activity_Main extends Activity {
 					public void onClick(DialogInterface dialog, int index) {
 						Activity_3_Upcoming_.intent(Activity_Main.this)
 								.howmany(String.valueOf(items[index])).start();
-						overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+						overridePendingTransition(R.anim.fade_in,
+								R.anim.fade_out);
 						finish();
 					}
 				});
@@ -232,6 +286,10 @@ public class Activity_Main extends Activity {
 
 	void LoadFromFile() throws ParseException, SQLException {
 		String strBuf = ReadTextFile();
+		if (strBuf == null) {
+			showToast(getString(R.string.fileError));
+			return;
+		}
 		StringTokenizer st = new StringTokenizer(strBuf);
 
 		String str_start_date;
@@ -268,11 +326,15 @@ public class Activity_Main extends Activity {
 
 			File file;
 			file = new File(Setting_Variables.path);
+
 			if (!file.exists()) {
 				file.mkdirs();
 			}
 			file = new File(Setting_Variables.path + File.separator
 					+ "db_mycalendar.txt");
+			if (!file.exists()) {
+				return null;
+			}
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					new FileInputStream(file), "UTF-8"));
 
