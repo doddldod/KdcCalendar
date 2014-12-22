@@ -5,13 +5,14 @@ import kr.ac.hyu.kangdaecheol.calendar.model.BoardInfo;
 import kr.ac.hyu.kangdaecheol.calendar.model.MyDate;
 import kr.ac.hyu.kangdaecheol.calendar.model.Schedule;
 
-public class DAECHEOL extends TestCase {
-	public DAECHEOL(String name) {
+public class DAECHEOL_JUNIT extends TestCase {
+	public DAECHEOL_JUNIT(String name) {
 		super(name);
 		testSchedule();
 		testSchedule100000case();
 		testDate();
 		testDate100case();
+		testBoardInfo();
 	}
 
 	protected void setUp() throws Exception {
